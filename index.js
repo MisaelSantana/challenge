@@ -6,13 +6,13 @@ app.use(express.urlencoded({extended: false }));
 app.use(express.json());
 
 // Create page home;
-app.get('/home', request, response => {
-    response.render('Funcionando...');
+app.get('/home', (request, response) => {
+    response.send('Funcionando');
 });
 
 // Redirect for page home;
-app.get('/', request, response => {
-    window.location = "http://localhost:9000/home";
+app.get('/', (request, response) => {
+    window.location.href = "http://localhost:9000/home";
 });
 
 // Configuration server connection;
