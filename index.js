@@ -11,9 +11,7 @@ app.get('/home', (request, response) => {
 });
 
 // Redirect for page home;
-app.get('/', (request, response) => {
-    window.location.href = "http://localhost:9000/home";
-});
+
 
 // Configuration server connection;
 app.listen(9000, () => {
