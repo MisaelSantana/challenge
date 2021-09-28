@@ -1,0 +1,25 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "============= Prova de avaliação de perfil do Analista =============\r Prova 5 – Desenvolvimento\r Crie uma Aplicação em uma linguagem de sua preferência atendendo as especificações abaixo:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MisaelSantana/challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MisaelSantana/challenge/issues"
+  },
+  "homepage": "https://github.com/MisaelSantana/challenge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13"
+  }
+}
