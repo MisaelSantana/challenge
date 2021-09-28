@@ -8,5 +8,36 @@
 </head>
 <body>
     
+    <h1>Teste</h1>
+    <ul id="dados"></ul>
+
+<!-- Import Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- Functions JavaScripts -->
+<script>
+    // Using API;
+    async function onLoad() {
+        const url = 'http://localhost:9000/api/dados'
+        try {
+            const response = await axios.get(url);
+            getAllData(response);
+        }
+        catch(error) {
+            console.log(error);
+        }
+    };
+
+    function getAllData(response) {
+        const dados = response.data;
+        const list = document.getElementById('dados');
+        dados.forEach(dados => {
+            const item = document.createElement('ul');
+            item.setAttribute('data-id', dados.id);
+            item.innerHTML = `${dado.id} - ${dado.partida} - ${dado.destino}`
+            list.appendChild(item);
+        });
+    }
+</script>
+
 </body>
 </html>

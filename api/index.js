@@ -52,7 +52,7 @@ app.delete('/api/dado/:id', (request, response) => {
             // User enter id that does not exist;
             response.sendStatus = 404;
         } else {
-            DB.dados.splice(game, 1);
+            DB.dados.splice(dado, 1);
             response.sendStatus(200);
             response.json({ message: 'Removido com sucesso!' });
         }
