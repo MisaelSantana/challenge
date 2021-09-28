@@ -9,12 +9,12 @@ app.use(express.json());
 // app.use(cors());
 
 // Creation database estatic;
-const DB = {
+let DB = {
     dados: [
         {id: 1, partida:0, destino:100},
         {id: 2, partida:0, destino:1450},
         {id: 3, partida:0, destino:160},
-        {id: 4, partida:0, destino:150}
+        {id: 4, partida:0, destino:150},
     ]
 }
 
@@ -57,7 +57,17 @@ app.delete('/api/dado/:id', (request, response) => {
             response.json({ message: 'Removido com sucesso!' });
         }
     }
-})
+});
+
+// Configuration Database;
+const connection = require('../database/database');
+connection
+    .authenticate()
+    .then(() => {
+        console.log('MySQL: Connection Sucesses!');
+    }).catch ((error) => {
+        console.log(error);
+    });
 
 // Configuration server;
 app.listen(9000, () => {
