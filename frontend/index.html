@@ -13,28 +13,58 @@
         Desafio - Calculadora de consumo de combustível
     </header>
 
-    <!--  -->
+    <!-- Body card -->
     <div class="container">
+
         <div class="card">
             <section>
                 <h1>Histórico de cálculos feitos</h1>
                 <ul id="dados"></ul>
             </section>
-            <section>
+
+            <section class="section-inputs">
                 <h1>Novo Cálculo</h1>
-                <form action="post">
-                    <input type="number"
-                    name="partida"
-                    placeholder="Insira a localização inicial">
+                <!-- Form with inputs -->
+                <form action="post" class="section-inputs-input">
+                    <div class="">
+                        <input type="number"
+                        name="partida"
+                        placeholder="Insira a localização inicial">
+                    </div>
         
-                    <input type="number"
-                    name="destino"
-                    placeholder="Insira o seu destino">
-        
-                    <button type="button"
+                    <div class="">
+                        <input type="number"
+                        name="destino"
+                        placeholder="Insira o seu destino">
+                    </div>
+
+                    <div class="">
+                        <input type="number"
+                        name=""
+                        placeholder="KM percorridos á 40 KM/h">
+                    </div>
+                    
+                    <div class="">
+                        <input type="number"
+                        name=""
+                        placeholder="KM percorridos á 60 KM/h">
+                    </div>
+                    
+                    <div class="">
+                        <input type="number"
+                        name=""
+                        placeholder="KM percorridos á 80 KM/h">
+                    </div>
+                    
+                    <div class="">
+                        <input type="number"
+                        name=""
+                        placeholder="KM percorridos á 100 KM/h">
+                    </div>
+                </form>
+                <button type="button"
                     onclick="createData()">
                     Adicionar</button>
-                </form>
             </section>
         </div>
     </div>
@@ -97,7 +127,7 @@
         item.appendChild(deleteButton);
         deleteButton.addEventListener('click', () => {
             deleteData(item);
-        })
+        });
     }
 
     // Function remove items list

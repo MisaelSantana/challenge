@@ -1,7 +1,7 @@
 body {
     background-image: url(../img/img-background-2OPC.jpg);
     background-position: center;
-    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Nunito', sans-serif; */
     color: white;
     width: auto;
     text-align: center;
@@ -29,6 +29,7 @@ body {
 }
 
 .card {
+    border: solid 1px orange;
     background-color: white;
     color: black;
     max-width: 40%;
@@ -39,6 +40,44 @@ body {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 10px;
-    /* opacity: 50%;
-    filter: brightness(50%); */
 }
+
+.section-inputs {
+    border: 1px solid green;
+    padding: 10px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-inputs h1 {
+    margin-bottom: 10px;
+}
+
+.section-inputs-input {
+    border: solid 1px orange;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80%;
+    margin-left: 10%;
+}
+
+.section-inputs-input input {
+    padding: 10px;
+    margin: 3%;
+    border: 0;
+    border-bottom: 2px solid black;
+    transition: border-color 0.2s;
+    transition: all 1s;
+}
+
+.section-inputs-input input:focus {
+    width: auto;
+    top: 100%;
+    right: 100%;
+}
+
+/* ====================================== */
+

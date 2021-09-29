@@ -59,6 +59,17 @@ app.delete('/api/dado/:id', (request, response) => {
     }
 });
 
+// Create item using method post;
+app.post('/api/dado', (request, response) => {
+    const {partida, destino} = request.body;
+    DB.dados.push({
+        id: Math.floor(Math.random()* 100 + 1),
+        partida,
+        destino
+    });
+    response.send({message: 'Item adicionado com sucesso!'});
+});
+
 // Configuration Database;
 const connection = require('../database/database');
 connection
