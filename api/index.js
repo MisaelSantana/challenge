@@ -1,12 +1,12 @@
 const { response, request } = require('express');
 const express = require('express');
 const app = express();
-// const cors = require(cors);
+const cors = require('cors');
 
 // Set aplications;
 app.use(express.urlencoded({extended: false }));
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 // Creation database estatic;
 let DB = {

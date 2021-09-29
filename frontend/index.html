@@ -15,7 +15,9 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!-- Functions JavaScripts -->
 <script>
-    // Using API;
+    // get function onLoad for to bring all functions
+    onLoad();
+    
     async function onLoad() {
         const url = 'http://localhost:9000/api/dados'
         try {
@@ -25,19 +27,38 @@
         catch(error) {
             console.log(error);
         }
-    };
+    }
 
     function getAllData(response) {
         const dados = response.data;
         const list = document.getElementById('dados');
-        dados.forEach(dados => {
-            const item = document.createElement('ul');
+        dados.forEach(dado => {
+            const item = document.createElement('li');
             item.setAttribute('data-id', dados.id);
             item.innerHTML = `${dado.id} - ${dado.partida} - ${dado.destino}`
             list.appendChild(item);
         });
     }
-</script>
 
+    function createData() {
+        const partidaField = document.querySelector('#partida').value;
+        const destinoField = document.querySelector('#destino').value;
+        const url = 'http://localhost:9000/api/dado';
+        const data = {
+            partida: partidaField,
+            destino: destinoField
+        }
+        
+        axios.post(url, data)
+        .then((response) => {
+            if(response.status === 200) {
+                alert('Inserido com sucesso!');
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+</script>
 </body>
 </html>
