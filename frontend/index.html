@@ -7,9 +7,31 @@
     <title>Challenge - Calculate</title>
 </head>
 <body>
+    <header>
+        Calculadora
+    </header>
+    <section>
+        <h1>Histórico de cálculos feitos</h1>
+        <ul id="dados"></ul>
+    </section>
+
+    <section>
+        <h1>Novo Cálculo</h1>
+        <form action="post">
+            <input type="number"
+            name="partida"
+            placeholder="Insira a localização inicial">
+
+            <input type="number"
+            name="destino"
+            placeholder="Insira o seu destino">
+
+            <button type="button"
+            onclick="createData()">
+            Adicionar</button>
+        </form>
+    </section>
     
-    <h1>Teste</h1>
-    <ul id="dados"></ul>
 
 <!-- Import Axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -17,7 +39,7 @@
 <script>
     // get function onLoad for to bring all functions
     onLoad();
-    
+
     async function onLoad() {
         const url = 'http://localhost:9000/api/dados'
         try {
@@ -29,6 +51,7 @@
         }
     }
 
+    // Function that brings all the data;
     function getAllData(response) {
         const dados = response.data;
         const list = document.getElementById('dados');
@@ -40,6 +63,7 @@
         });
     }
 
+    // Function that create new data;
     function createData() {
         const partidaField = document.querySelector('#partida').value;
         const destinoField = document.querySelector('#destino').value;
@@ -55,6 +79,30 @@
                 alert('Inserido com sucesso!');
             }
         }).catch((error) => {
+            console.log(error);
+        });
+    }
+
+    // Function that build items;
+    function buildData() {
+        const deleteButton = document.createElement('button');
+        deleteButton.innerHTML = 'Remover';
+        item.appendChild(deleteButton);
+        deleteButton.addEventListener('click', () => {
+            deleteData(item);
+        })
+    }
+
+    // Function remove items list
+    function deleteData(item) {
+        console.log(item);
+        const dataId = item.getAttribute('data-id');
+        const url = `http://localhost:9000/api/dados/${dataId}`
+
+        axios.delete(url)
+        .then(response => {
+            console.log(response);
+        }).catch(error => {
             console.log(error);
         });
     }
