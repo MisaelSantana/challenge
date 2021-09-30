@@ -7,6 +7,9 @@
     <title>Challenge - Calculate</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,100&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="nav-bar">
@@ -17,7 +20,7 @@
     <div class="container">
 
         <div class="card">
-            <section>
+            <section class="history">
                 <h1>Histórico de cálculos feitos</h1>
                 <ul id="dados"></ul>
             </section>
@@ -26,49 +29,40 @@
                 <h1>Novo Cálculo</h1>
                 <!-- Form with inputs -->
                 <form action="post" class="section-inputs-input">
-                    <div class="">
+
                         <input type="number"
                         name="partida"
                         placeholder="Insira a localização inicial">
-                    </div>
         
-                    <div class="">
                         <input type="number"
                         name="destino"
                         placeholder="Insira o seu destino">
-                    </div>
 
-                    <div class="">
                         <input type="number"
                         name=""
                         placeholder="KM percorridos á 40 KM/h">
-                    </div>
                     
-                    <div class="">
                         <input type="number"
                         name=""
                         placeholder="KM percorridos á 60 KM/h">
-                    </div>
                     
-                    <div class="">
                         <input type="number"
                         name=""
                         placeholder="KM percorridos á 80 KM/h">
-                    </div>
                     
-                    <div class="">
                         <input type="number"
                         name=""
                         placeholder="KM percorridos á 100 KM/h">
-                    </div>
                 </form>
-                <button type="button"
+
+                <button class="add-button"
+                type="button"
                     onclick="createData()">
                     Adicionar</button>
             </section>
         </div>
     </div>
-    
+
 
 <!-- Import Axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

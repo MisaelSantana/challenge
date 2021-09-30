@@ -15,6 +15,10 @@ let DB = {
         {id: 2, partida:0, destino:1450},
         {id: 3, partida:0, destino:160},
         {id: 4, partida:0, destino:150},
+        {id: 5, partida:0, destino:150},
+        {id: 6, partida:0, destino:150},
+        {id: 7, partida:0, destino:150},
+        {id: 8, partida:0, destino:150},
     ]
 }
 
