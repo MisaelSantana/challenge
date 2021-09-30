@@ -76,6 +76,9 @@
         try {
             const response = await axios.get(url);
             getAllData(response);
+            createData();
+            buildData();
+            deleteData();
         }
         catch(error) {
             console.log(error);
@@ -88,7 +91,7 @@
         const list = document.getElementById('dados');
         dados.forEach(dado => {
             const item = document.createElement('li');
-            item.setAttribute('data-id', dados.id);
+            item.setAttribute('data-id', dado.id);
             item.innerHTML = `${dado.id} - ${dado.partida} - ${dado.destino}`
             list.appendChild(item);
         });
@@ -137,7 +140,6 @@
             console.log(error);
         });
     }
-
 </script>
 </body>
 </html>
