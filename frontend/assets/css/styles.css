@@ -48,6 +48,14 @@ body {
     box-shadow: 0px 0px 1px black;
 }
 
+.history {
+    padding: 3%;
+}
+
+.history h1 {
+    margin-bottom: 5%;
+}
+
 /* Style section inputs */
 .section-inputs {
     margin-top: 30px;
@@ -83,18 +91,10 @@ body {
 /* Style button */
 .add-button {
     margin-top: 5%;
-    width: 30%;
     height: 30px;
     border-radius: 5px;
     background-color: black;
     color: white;
     box-shadow: 0px 0px 1px black;
-}
-
-.history {
-    padding: 3%;
-}
-
-.history h1 {
-    margin-bottom: 5%;
+    font-size: 15px;
 }

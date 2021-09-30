@@ -2,7 +2,7 @@ const { response, request } = require('express');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const allData = require('../database/form')
+const allLocation = require('../database/form')
 
 // Set aplications;
 app.use(express.urlencoded({extended: false }));
@@ -75,7 +75,19 @@ app.post('/api/dado/', (request, response) => {
 });
 
 // Receive data the Data Base;
+app.post('/api/dados/salvar', (request, response) => {
+    const pt_partida = request.body.pt_partida;
+    const pt_chegada = request.body.pt_chegada;
 
+    allLocation.create({
+        pt_partida: pt_partida,
+        pt_chegada: pt_chegada
+    }).then(() => {
+        response.redirect('/api/dados/');
+    }).catch((error) => {
+        console.log(error);
+    });
+});
 
 // Configuration Database;
 const connection = require('../database/database');
