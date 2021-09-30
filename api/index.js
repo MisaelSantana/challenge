@@ -2,6 +2,7 @@ const { response, request } = require('express');
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const allData = require('../database/form')
 
 // Set aplications;
 app.use(express.urlencoded({extended: false }));
@@ -11,14 +12,9 @@ app.use(cors());
 // Creation database estatic;
 let DB = {
     dados: [
-        {id: 1, partida:0, destino:100},
-        {id: 2, partida:0, destino:1450},
-        {id: 3, partida:0, destino:160},
-        {id: 4, partida:0, destino:150},
-        {id: 5, partida:0, destino:150},
-        {id: 6, partida:0, destino:150},
-        {id: 7, partida:0, destino:150},
-        {id: 8, partida:0, destino:150}
+        {id: 1, partida:0, destino:100, km40: 10, km60: 10, km80: 10, km100: 10},
+        {id: 2, partida:0, destino:1450, km40: 10, km60: 10, km80: 10, km100: 10},
+        {id: 3, partida:0, destino:160, km40: 10, km60: 10, km80: 10, km100: 10}
     ]
 }
 
@@ -64,15 +60,22 @@ app.delete('/api/dado/:id', (request, response) => {
 });
 
 // Create item using method post;
-app.post('/api/dado', (request, response) => {
-    const {partida, destino} = request.body;
+app.post('/api/dado/', (request, response) => {
+    const {partida, destino, km40, km60, km80, km100} = request.body;
     DB.dados.push({
-        id: Math.floor(Math.random()* 100 + 1),
+        id: Math.floor(Math.random()* 10 + 1),
         partida,
-        destino
+        destino,
+        km40,
+        km60,
+        km80,
+        km100,
     });
     response.send({message: 'Item adicionado com sucesso!'});
 });
+
+// Receive data the Data Base;
+
 
 // Configuration Database;
 const connection = require('../database/database');
