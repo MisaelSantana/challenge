@@ -60,12 +60,17 @@
                         name="km100"
                         placeholder="KM percorridos á 100 KM/h">
                 </form>
+                
+                <button class="add-button"
+                    type="button"
+                    onclick="clearForm()">
+                    Limpar</button>
 
                 <button class="add-button"
                     type="button"
                     onclick="createData()">
                     Adicionar</button>
-            </section>
+                </section>
         </div>
     </div>
 
@@ -118,7 +123,7 @@
             km100: km100Field
         }
         
-        axios.post(url, data)
+        axios.post(url, data, clearForm)
         .then((response) => {
             if(response.status === 200) {
                 alert('Inserido com sucesso!');
@@ -126,6 +131,28 @@
         }).catch((error) => {
             console.log(error);
         });
+
+        // After post, this function clear field;
+        with (document) {
+            getElementById('partida').value = "";
+            getElementById('destino').value = "";
+            getElementById('km40').value = "";
+            getElementById('km60').value = "";
+            getElementById('km80').value = "";
+            getElementById('km100').value = "";
+        }
+    }
+
+    // Function clear field;
+    function clearForm() {
+        with (document) {
+            getElementById('partida').value = "";
+            getElementById('destino').value = "";
+            getElementById('km40').value = "";
+            getElementById('km60').value = "";
+            getElementById('km80').value = "";
+            getElementById('km100').value = "";
+        }
     }
 </script>
 </body>

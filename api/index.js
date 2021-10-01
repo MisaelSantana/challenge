@@ -74,7 +74,7 @@ app.post('/api/dado/', (request, response) => {
     response.send({message: 'Item adicionado com sucesso!'});
 });
 
-// Receive data the Data Base;
+// Save data the Data Base;
 app.post('/api/dados/salvar', (request, response) => {
     const pt_partida = request.body.pt_partida;
     const pt_chegada = request.body.pt_chegada;
