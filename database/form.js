@@ -1,10 +1,7 @@
 const sequelise = require('sequelize');
-const connection = require('./Locationbase');
+const connection = require('./database');
 
 const allLocation = connection.define('location', {
-    id: {
-        
-    },
     pt_partida: {
         type: sequelise.TEXT,
         allowNull: false,
