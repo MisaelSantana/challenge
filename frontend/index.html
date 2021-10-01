@@ -61,21 +61,30 @@
                         placeholder="KM percorridos á 100 KM/h">
                 </form>
                 
-                <button class="add-button"
-                    type="button"
-                    onclick="clearForm()">
-                    Limpar</button>
+                <div class="container-botton">
+                    <button id="idButton" 
+                        class="button"
+                        type="button"
+                        onclick="clearForm()">
+                        Limpar</button>
 
-                <button class="add-button"
-                    type="button"
-                    onclick="createData()">
-                    Adicionar</button>
+                    <button class="button"
+                        type="button"
+                        onclick="createData()">
+                        Adicionar</button>
+                </div>
                 </section>
         </div>
     </div>
 
 <!-- Import Axios -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Import Jquery -->
+<script src="http://api.jquery.com/jquery.param/"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+
 <!-- Functions JavaScripts -->
 <script>
     // get function onLoad for to bring all functions
@@ -106,32 +115,28 @@
 
     // Function that create new data;
     function createData() {
-        const partidaField = document.querySelector('#partida').value;
-        const destinoField = document.querySelector('#destino').value;
-        const km40Field = document.querySelector('#km40').value;
-        const km60Field = document.querySelector('#km60').value;
-        const km80Field = document.querySelector('#km80').value;
-        const km100Field = document.querySelector('#km100').value;
-
         const url = 'http://localhost:9000/api/dado';
-        const data = {
-            partida: partidaField,
-            destino: destinoField,
-            km40: km40Field,
-            km60: km60Field,
-            km80: km80Field,
-            km100: km100Field
-        }
         
-        axios.post(url, data, clearForm)
-        .then((response) => {
-            if(response.status === 200) {
-                alert('Inserido com sucesso!');
-            }
-        }).catch((error) => {
-            console.log(error);
-        });
+        const data = {
+            partida: document.getElementById('partida').value,
+            destino: document.getElementById('destino').value,
+            km40: document.getElementById('km40').value,
+            km60: document.getElementById('km60').value,
+            km80: document.getElementById('km80').value,
+            km100: document.getElementById('km100').value
+        }
 
+        $(partida).ajaxForm({url: url, type: 'post'})
+
+        // axios.post(url, data, clearForm)
+        // .then((response) => {
+        //     if(response.status === 200) {
+        //         alert('Inserido com sucesso!');
+        //     }
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
+        
         // After post, this function clear field;
         with (document) {
             getElementById('partida').value = "";
@@ -141,6 +146,8 @@
             getElementById('km80').value = "";
             getElementById('km100').value = "";
         }
+
+        
     }
 
     // Function clear field;
